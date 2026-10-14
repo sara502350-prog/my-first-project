@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara R A | Personal Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    background: linear-gradient(135deg, #090b22, #211044, #101d3c, #351044);
+    background-size: 300% 300%;
+    animation: backgroundFlow 12s ease infinite;
+}
+
+@keyframes backgroundFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NAVIGATION */
+nav {
+    width: 100%;
+    padding: 24px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    animation: slideDown 1s ease both;
+}
+
+.logo {
+    color: #ff9ce6;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ff9ce6;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 100px;
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #a8f5ff;
+    background: rgba(255,255,255,0.06);
+    margin-bottom: 28px;
+    animation: fadeUp 1s 0.3s both;
+}
+
+h1 {
+    font-size: clamp(48px, 9vw, 100px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1.15;
+    background: linear-gradient(90deg, #ff8be9, #a9a4ff, #73f7ed, #ff8be9);
+    background-size: 300% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: nameReveal 1.5s 0.5s both, colorFlow 5s linear infinite;
+    filter: drop-shadow(0 0 22px rgba(204, 112, 255, 0.25));
+}
+
+@keyframes nameReveal {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(0.92);
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes colorFlow {
+    to { background-position: 300% center; }
+}
+
+.subtitle {
+    font-size: clamp(17px, 3vw, 24px);
+    margin-top: 20px;
+    color: #e5dcff;
+    animation: fadeUp 1s 1.3s both;
+}
+
+.about {
+    max-width: 700px;
+    margin: 26px auto 0;
+    color: #c9c8e6;
+    font-size: 17px;
+    line-height: 1.9;
+    animation: fadeUp 1s 1.8s both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buttons {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 1s 2.2s both;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 27px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #e879e9, #8c8aff);
+    color: #15112b;
+    box-shadow: 0 0 24px rgba(211, 111, 255, 0.3);
+}
+
+.btn-outline {
+    color: white;
+    border: 1px solid #aaa0e8;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(198, 113, 255, 0.35);
+}
+
+/* FLYING BUTTERFLIES */
+.butterfly {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 34px;
+    filter: drop-shadow(0 0 12px rgba(255, 146, 239, 0.8));
+    animation: butterflyFly 9s ease-in-out infinite;
+}
+
+.b1 {
+    top: 20%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.b2 {
+    top: 26%;
+    right: 10%;
+    font-size: 42px;
+    animation-delay: -3s;
+}
+
+.b3 {
+    bottom: 22%;
+    left: 15%;
+    font-size: 26px;
+    animation-delay: -5s;
+}
+
+.b4 {
+    bottom: 20%;
+    right: 14%;
+    font-size: 30px;
+    animation-delay: -2s;
+}
+
+@keyframes butterflyFly {
+    0% {
+        transform: translate(0, 0) rotate(-12deg) scale(0.8);
+    }
+    25% {
+        transform: translate(35px, -45px) rotate(15deg) scale(1.1);
+    }
+    50% {
+        transform: translate(-10px, -75px) rotate(-10deg) scale(0.95);
+    }
+    75% {
+        transform: translate(-35px, -30px) rotate(12deg) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) rotate(-12deg) scale(0.8);
+    }
+}
+
+/* FLOATING LIGHTS */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(75px);
+    opacity: 0.28;
+    z-index: -1;
+    animation: pulse 7s ease-in-out infinite alternate;
+}
+
+.orb1 {
+    width: 250px;
+    height: 250px;
+    background: #b52cff;
+    top: 5%;
+    left: 12%;
+}
+
+.orb2 {
+    width: 300px;
+    height: 300px;
+    background: #00c8d7;
+    right: 8%;
+    bottom: 5%;
+    animation-delay: -3s;
+}
+
+@keyframes pulse {
+    from { transform: scale(0.8); }
+    to { transform: scale(1.25); }
+}
+
+/* SKILLS */
+.skills {
+    padding: 60px 8% 90px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(30px, 5vw, 42px);
+    margin-bottom: 15px;
+    color: #f5d9ff;
+}
+
+.section-description {
+    color: #bbb9d9;
+    margin-bottom: 35px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.skill {
+    padding: 15px 25px;
+    border: 1px solid rgba(193, 169, 255, 0.3);
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    color: #e9e2ff;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-6px);
+    border-color: #ff9ce6;
+    box-shadow: 0 0 20px rgba(219, 124, 255, 0.2);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #aaa8ca;
+    font-size: 14px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+    nav {
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav a {
+        margin: 0 9px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 78vh;
+        padding: 50px 20px 70px;
+    }
+
+    .butterfly {
+        font-size: 25px;
+    }
+
+    .b1 { left: 3%; }
+    .b2 { right: 3%; }
+    .b3 { left: 5%; }
+    .b4 { right: 5%; }
+
+    .about {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SARA R A</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+    </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <span class="butterfly b1" aria-hidden="true">🦋</span>
+    <span class="butterfly b2" aria-hidden="true">🦋</span>
+    <span class="butterfly b3" aria-hidden="true">🦋</span>
+    <span class="butterfly b4" aria-hidden="true">🦋</span>
+
+    <div class="hero-content">
+
+        <div class="tag">✦ Welcome to My Creative Space ✦</div>
+
+        <h1>SARA R A</h1>
+
+        <p class="subtitle">
+            B.Tech IT Student | Aspiring Software Developer
+        </p>
+
+        <div class="about" id="about">
+            <p>
+                Hello! I'm Sara R A, a passionate Information Technology
+                student who loves exploring technology and building
+                creative digital experiences.
+            </p>
+            <p style="margin-top: 12px;">
+                I enjoy learning new technologies, developing websites,
+                exploring Data Science, and turning innovative ideas
+                into real-world projects. I believe every new skill
+                is an opportunity to create something meaningful.
+            </p>
+        </div>
+
+        <div class="buttons">
+            <a href="#skills" class="btn btn-primary">Explore My Skills ↗</a>
+            <a href="https://github.com/" target="_blank"
+               rel="noopener noreferrer" class="btn btn-outline">
+                Visit GitHub
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="skills" id="skills">
+    <h2 class="section-title">My Tech Universe ✨</h2>
+    <p class="section-description">
+        Technologies I'm learning and exploring
+    </p>
+
+    <div class="skill-list">
+        <div class="skill">☕ Java</div>
+        <div class="skill">🌐 HTML</div>
+        <div class="skill">🎨 CSS</div>
+        <div class="skill">⚡ JavaScript</div>
+        <div class="skill">📊 Data Science</div>
+        <div class="skill">💻 Web Development</div>
+        <div class="skill">🚀 Real-World Projects</div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <p>Designed with 💜 by Sara R A</p>
+    <p style="margin-top: 8px;">Learning • Creating • Growing</p>
+</footer>
+
+</body>
+</html>
